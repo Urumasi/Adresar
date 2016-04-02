@@ -1,0 +1,22 @@
+#addressbook{
+    border: 1px solid dodgerblue;
+}
+
+#content{
+    border: 1px solid darkgray;
+}
+p.message{
+    font-family: Arial;
+    font-weight: bold;
+    background-color: lawngreen;
+    padding: 3px;
+    border-radius: 4px;
+}
+p.error{
+    font-family: Arial;
+    font-weight: bold;
+    background-color: darkred;
+    color: white;
+    padding: 3px;
+    border-radius: 4px;
+}

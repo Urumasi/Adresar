@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        {% block styles %}{% endblock %}
+    </head>
+    <body>
+
+
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                <div id="messages" class="container">
+                    {% for category, message in messages %}
+                        <p class="{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endwith %}
+            <div class="row">
+                <div id="addressbook" class="col-sm-3">
+                    {% include "addressbook.tmpl" %}
+                </div>
+                <div id="content" class="container col-sm-9">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

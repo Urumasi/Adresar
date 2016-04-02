@@ -1,0 +1,15 @@
+{% extends "base.tmpl" %}
+
+{% block title %}Contact View{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+{% endblock %}
+
+
+{% block content %}
+    <h1>{{ contact.firstname }} {{ contact.lastname }}</h1>
+    <a class="btn btn-sm btn-danger" href="{{ url_for('contact-delete', id=contact._id) }}">DELETE</a>
+    <a class="btn btn-sm btn-info" href="{{ url_for('contact-edit', id=contact._id) }}">EDIT</a>
+{% endblock %}

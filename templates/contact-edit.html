@@ -1,0 +1,29 @@
+{% extends "base.tmpl" %}
+
+{% block title %}Edit Contact{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+{% endblock %}
+
+
+{% block content %}
+    <h1>Změna záznamu</h1>
+
+    {% macro render_field(field) %}
+        {{ field.label }}{% if field.flags.required %}<b>*</b>{% endif %}{{ field }}
+        {% for error in field.errors %} {{ error }} {% endfor %}
+    {% endmacro %}
+
+
+    <form action="" method="post">
+        {{ form.csrf_token }}
+        {{ form._id }}
+
+        {{ render_field(form.firstname) }}<br/>
+        {{ render_field(form.lastname) }}<br/>
+
+        {{ form.submit }}
+    </form>
+{% endblock %}

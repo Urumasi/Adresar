@@ -1,0 +1,8 @@
+<a href="{{ url_for('index') }}">Domů</a><br/>
+<div id="new-entry">
+    <a href="{{ url_for('contacts-add') }}">Přidat záznam</a>
+</div>
+<hr/>
+{% for contact in contacts %}
+    <a href="{{ url_for('contact-view', id=contact._id) }}">{{ contact.firstname }} {{ contact.lastname }}</a><br/>
+{% endfor %}
